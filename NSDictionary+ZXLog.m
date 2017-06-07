@@ -7,7 +7,11 @@
 //
 
 #ifndef ZX_TARGET_NEED_UNICODE_CONVERSION
-#define ZX_TARGET_NEED_UNICODE_CONVERSION 1
+    #ifdef DEBUG
+    #define ZX_TARGET_NEED_UNICODE_CONVERSION 1
+    #else
+    #define ZX_TARGET_NEED_UNICODE_CONVERSION 0
+    #endif
 #endif
 
 #if ZX_TARGET_NEED_UNICODE_CONVERSION
@@ -64,3 +68,4 @@ static inline void zx_swizzleSelector(Class theClass, SEL originalSelector, SEL 
 }
 
 @end
+
